@@ -12,21 +12,28 @@ console.log('Sum is ' + sum);
 
 // Найменше та найбільше число масиву
 
-let min = 0;
-let max = 0;
-for (let i = 0; i < numbers.length; i++) {
-  if (Number(numbers[i]) === numbers[i]) {
-    if (numbers[i] < min) {
-      min = numbers[i];
+function minNum(arr) {
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
     }
-    if (numbers[i] > max) {
-      max = numbers[i];
     }
-  }
+    return min;
 }
 
-console.log('Min number is ' + min);
-console.log('Max number is ' + max);
+function maxNum(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+console.log(minNum(numbers));
+console.log(maxNum(numbers));
 
 //Ялинка
 
