@@ -2,13 +2,13 @@
 
 const numbers = [13, 0, 1, -1, 9, -9, 3, 2, 6, 100];
 
-let sum = 0;
+let sumNum = 0;
 for (let i = 0; i < numbers.length; i++) {
   if (Number(numbers[i]) === numbers[i]) {
-    sum += numbers[i];
+    sumNum += numbers[i];
   }
 }
-console.log('Sum is ' + sum);
+console.log('Sum is ' + sumNum);
 
 // Найменше та найбільше число масиву
 
