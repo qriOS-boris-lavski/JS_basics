@@ -1,6 +1,7 @@
 const firstNum = +prompt("Put the first number");
 const secondNum = +prompt("Put the second number");
 // const colors = {};
+const results = [];
 
 function calculation() {
     if (firstNum === '' || secondNum === '') {
@@ -19,25 +20,29 @@ calculation()
 
 function sum(a, b) {
     let result = Number(a) + Number(b);
-    showResult(result);
+    results.push(result);
+    showResult('Sum', result);
 }
 
 function subtraction(a, b) {
     let result = Number(a) - Number(b);
     if (a < b) {
         if (confirm('Are you sure you want to run this operation?')){
-            showResult(result);
+            results.push(result);
+            showResult('Subtraction', result);
         } else {
             return
         }
     } else {
-        showResult(result);
+        results.push(result);
+        showResult('Subtraction', result);
     }
 }
 
 function multiplication(a, b) {
     let result = Number(a) * Number(b);
-    showResult(result);
+    results.push(result);
+    showResult('Multiplication', result);
 }
 
 function division(a, b) {
@@ -47,10 +52,11 @@ function division(a, b) {
     } else {
         result = Number(a) / Number(b);
     }
-    showResult(result);
+    results.push(result);
+    showResult('Division', result);
 }
-
-function showResult(result) {
+console.log(results)
+function showResult(operation, result) {
     let resultBlock = document.createElement("h2");
     if (result === "Error, you can't devide on 0") {
         resultBlock.style.color = "#9a560e";
@@ -59,21 +65,7 @@ function showResult(result) {
     } else {
         resultBlock.style.color = "#1e6400";
     }
-    
-    resultBlock.innerHTML = result;
+    const phrase = `${operation}: ${result}`;
+    resultBlock.innerHTML = phrase;
     document.body.appendChild(resultBlock);
 }
-
-// function showPhrase (resultBlock) {
-//     // let phrase = document.createAttribute("h3");
-
-//     let functions = [sum, subtraction, multiplication, division];
-//     for (let i = 0; i < functions.length; i++) {
-//         if (functions[i].name === "sum") { 
-//           resultBlock.innerHTML = "Sum: " + result;
-//           document.body.appendChild(resultBlock);
-//           break
-//         }
-//       }
-
-// }

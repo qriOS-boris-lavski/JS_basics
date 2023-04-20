@@ -48,3 +48,24 @@ for (let i = 1; i <= 5; i++) {
   
   console.log(firTree);
 
+// Lesson 33
+  Array.prototype.pow = function(n) {
+    return this.map(function(x) {
+      return Math.pow(x, n);
+    });
+  }
+
+  Function.prototype.defer = function(n) {
+    let f = this;
+    setTimeout(function() {
+      f();
+    }, n);
+  }
+
+  console.log(numbers.pow(2))
+
+  function phrase(){
+    console.log('TEST')
+  }
+
+  phrase.defer(5000)
